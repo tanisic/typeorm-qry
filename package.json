@@ -1,6 +1,6 @@
 {
   "name": "typeorm-qry",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Simple TypeORM query builder.",
   "author": "Tin Anišić",
   "license": "MIT",
