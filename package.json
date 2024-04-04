@@ -20,13 +20,16 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "barrel": "barrelsby -c ./barrelsby.config.json"
+    "build": "tsc",
+    "barrel": "barrelsby -c ./barrelsby.config.json",
+    "release": "release-it"
   },
   "peerDependencies": {
     "typeorm": "^0.3.20"
   },
   "devDependencies": {
     "barrelsby": "^2.8.1",
+    "release-it": "^17.1.1",
     "typeorm": "^0.3.20",
     "typescript": "^5.4.3"
   }
