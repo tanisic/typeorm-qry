@@ -1,0 +1,33 @@
+{
+  "name": "typeorm-qry",
+  "version": "1.0.0",
+  "description": "Simple TypeORM query builder.",
+  "author": "Tin Anišić",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tanisic/typeorm-qry.git"
+  },
+  "keywords": [
+    "typeorm",
+    "query",
+    "builder"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "barrel": "barrelsby -c ./barrelsby.config.json"
+  },
+  "peerDependencies": {
+    "typeorm": "^0.3.20"
+  },
+  "devDependencies": {
+    "barrelsby": "^2.8.1",
+    "typeorm": "^0.3.20",
+    "typescript": "^5.4.3"
+  }
+}
