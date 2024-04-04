@@ -22,9 +22,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsup src/index.ts --format cjs,esm --dts",
+    "release": "pnpm run build && changeset publish",
     "lint": "tsc",
-    "barrel": "barrelsby -c ./barrelsby.config.json",
-    "release": "release-it"
+    "barrel": "barrelsby -c ./barrelsby.config.json"
   },
   "peerDependencies": {
     "typeorm": "^0.3.20"
