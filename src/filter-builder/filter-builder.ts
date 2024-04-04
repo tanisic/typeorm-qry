@@ -36,7 +36,7 @@ export class FilterBuilder<T extends ObjectLiteral> {
     [FilterOperand.some]: "&& :EXPRESSION",
   };
 
-  applyFilter<T>(
+  applyFilter(
     queryBuilder: SelectQueryBuilder<T> | WhereExpressionBuilder,
     filter: Filter | Filter[] | FilterNode | FilterNode[],
     filterRoot: "and" | "or" = "and",
@@ -56,7 +56,7 @@ export class FilterBuilder<T extends ObjectLiteral> {
     }
   }
 
-  private applyOrFilter<T>(
+  private applyOrFilter(
     queryBuilder: SelectQueryBuilder<T> | WhereExpressionBuilder,
     filter: Filter | Filter[] | FilterNode | FilterNode[],
   ) {
@@ -73,7 +73,7 @@ export class FilterBuilder<T extends ObjectLiteral> {
     );
   }
 
-  private applyAndFilter<T>(
+  private applyAndFilter(
     queryBuilder: SelectQueryBuilder<T> | WhereExpressionBuilder,
     filter: Filter | Filter[] | FilterNode | FilterNode[],
   ) {
@@ -90,7 +90,7 @@ export class FilterBuilder<T extends ObjectLiteral> {
     );
   }
 
-  private applyNotFilter<T>(
+  private applyNotFilter(
     queryBuilder: SelectQueryBuilder<T> | WhereExpressionBuilder,
     filter: Filter | Filter[] | FilterNode | FilterNode[],
   ) {
@@ -104,7 +104,7 @@ export class FilterBuilder<T extends ObjectLiteral> {
     );
   }
 
-  private applyFilterNode<T>(
+  private applyFilterNode(
     queryBuilder: SelectQueryBuilder<T> | WhereExpressionBuilder,
     filterNode: FilterNode,
     filterRoot: "and" | "or" = "and",
@@ -134,7 +134,7 @@ export class FilterBuilder<T extends ObjectLiteral> {
       split.unshift(this.alias);
       const property = split.pop();
       alias = split.join("_");
-      name = property;
+      name = property as string;
     }
 
     let temp = `${name} ${this.operandsMap[op]}`.replace(

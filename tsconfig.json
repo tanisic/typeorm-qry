@@ -3,11 +3,11 @@
     "module": "Node16",
     "target": "ES6",
     "sourceMap": true,
+    "strict": true,
+    "noEmit": true,
     "outDir": "./dist",
     "noImplicitAny": true,
     "noUnusedParameters": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
     "declaration": true,
     "moduleResolution": "Node16",
     "skipLibCheck": true
