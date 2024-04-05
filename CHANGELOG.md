@@ -1,5 +1,13 @@
 # typeorm-qry
 
+## 0.0.3
+
+### Patch Changes
+
+- e25e51d: - Add README.md
+
+  - Bumped node version in github workflows
+
 ## 0.0.2
 
 ### Patch Changes
