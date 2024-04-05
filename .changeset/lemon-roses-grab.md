@@ -2,4 +2,6 @@
 "typeorm-qry": patch
 ---
 
-Add README.md
+- Add README.md
+
+- Bumped node version in github workflows
