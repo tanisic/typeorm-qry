@@ -5,12 +5,14 @@ import { SortBuilder } from "../sort-builder/sort-builder";
 import { QueryBuilderOptions } from "./types";
 import { deepMerge } from "../utils";
 import { QueryParams } from "../types";
+import { PaginateBuilder } from "../paginate-builder";
 
 export class QueryBuilder<T extends ObjectLiteral> {
   protected rawQuery: QueryParams;
   protected filter?: FilterBuilder<T>;
   protected include?: IncludeBuilder<T>;
   protected sort?: SortBuilder<T>;
+  protected paginate?: PaginateBuilder<T>;
   public readonly queryBuilder: SelectQueryBuilder<T>;
   public readonly repository: Repository<T>;
   protected rootAlias: string;
@@ -19,7 +21,7 @@ export class QueryBuilder<T extends ObjectLiteral> {
   constructor(
     query: QueryParams,
     repository: Repository<T>,
-    options: QueryBuilderOptions = {},
+    options: QueryBuilderOptions = {}
   ) {
     this.rawQuery = { ...query };
     this.options = {};
@@ -31,6 +33,7 @@ export class QueryBuilder<T extends ObjectLiteral> {
     this.initializeIncludeBuilder();
     this.initializeFilterBuilder();
     this.initializeSortBuilder();
+    this.initializePaginateBuilder();
   }
 
   private defaultOptions: QueryBuilderOptions = {
@@ -41,6 +44,9 @@ export class QueryBuilder<T extends ObjectLiteral> {
       disabled: false,
     },
     include: {
+      disabled: false,
+    },
+    paginate: {
       disabled: false,
     },
   };
@@ -54,7 +60,7 @@ export class QueryBuilder<T extends ObjectLiteral> {
       this.include = new IncludeBuilder(
         this.rawQuery,
         this.queryBuilder,
-        this.repository,
+        this.repository
       );
     }
   }
@@ -69,7 +75,16 @@ export class QueryBuilder<T extends ObjectLiteral> {
       this.sort = new SortBuilder(
         this.rawQuery,
         this.queryBuilder,
-        this.repository,
+        this.repository
+      );
+    }
+  }
+  private initializePaginateBuilder() {
+    if (!this.options?.paginate?.disabled) {
+      this.paginate = new PaginateBuilder(
+        this.rawQuery,
+        this.queryBuilder,
+        this.options.paginate!
       );
     }
   }

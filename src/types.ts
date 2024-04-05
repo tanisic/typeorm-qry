@@ -1,4 +1,5 @@
 import { Filter } from "./filter-builder/types";
+import { Paginate } from "./paginate-builder";
 
 export type QueryParams = {
   filter?: Filter;
@@ -21,4 +22,14 @@ export type QueryParams = {
    * `"-name,isActive,nested.relation.property,-nested.email"`
    */
   sort?: string;
+  /**
+   *
+   * @example
+   *
+   *
+   * `
+   * {page: 1, perPage: 10}
+   * `
+   */
+  paginate?: Paginate;
 };
