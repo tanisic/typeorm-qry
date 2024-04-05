@@ -1,5 +1,5 @@
 {
-  "directory": "./src/",
+  "directory": ["./src/", "./lib/"],
   "delete": true,
   "noHeader": true,
   "location": "all"
