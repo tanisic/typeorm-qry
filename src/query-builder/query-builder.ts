@@ -3,7 +3,7 @@ import { FilterBuilder } from "../filter-builder/filter-builder";
 import { IncludeBuilder } from "../include-builder/include-builder";
 import { SortBuilder } from "../sort-builder/sort-builder";
 import { QueryBuilderOptions } from "./types";
-import { deepMerge } from "../utils";
+import { deepMerge } from "../utils/utils";
 import { QueryParams } from "../types";
 import { PaginateBuilder } from "../paginate-builder";
 

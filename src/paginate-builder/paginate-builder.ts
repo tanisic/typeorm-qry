@@ -2,7 +2,7 @@ import { ObjectLiteral, SelectQueryBuilder } from "typeorm";
 import { QueryParams } from "../types";
 import { Paginate } from "./types";
 import { PaginateBuilderOptions } from "../query-builder";
-import { isInteger } from "../utils";
+import { isInteger } from "../utils/utils";
 
 export class PaginateBuilder<T extends ObjectLiteral> {
   private rawQuery: QueryParams;

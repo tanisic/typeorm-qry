@@ -35,7 +35,7 @@ export function isInteger(input: unknown): input is number {
     return Number.isInteger(input);
   }
   if (typeof input === "string") {
-    const result = parseInt(input);
+    const result = parseInt(input, 10);
     return !isNaN(result);
   }
   return false;
