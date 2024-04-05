@@ -1,4 +1,5 @@
 import { Filter } from "./filter-builder/types";
+import { Paginate } from "./paginate-builder";
 
 export type QueryParams = {
   filter?: Filter;
@@ -30,8 +31,5 @@ export type QueryParams = {
    * {page: 1, perPage: 10}
    * `
    */
-  paginate?: {
-    page: number;
-    perPage: number;
-  };
+  paginate?: Paginate;
 };
