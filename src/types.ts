@@ -21,4 +21,17 @@ export type QueryParams = {
    * `"-name,isActive,nested.relation.property,-nested.email"`
    */
   sort?: string;
+  /**
+   *
+   * @example
+   *
+   *
+   * `
+   * {page: 1, perPage: 10}
+   * `
+   */
+  paginate?: {
+    page: number;
+    perPage: number;
+  };
 };
