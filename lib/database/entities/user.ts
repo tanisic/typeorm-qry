@@ -8,10 +8,11 @@ import {
   Entity,
   Column,
   UpdateDateColumn,
+  CreateDateColumn,
 } from "typeorm";
-import { Address, Role, Comment, BookList } from ".";
+import { Address, Role, Comment, Book } from ".";
 
-@Entity()
+@Entity("users")
 export class User {
   @PrimaryGeneratedColumn()
   public id!: number;
@@ -51,7 +52,7 @@ export class User {
   })
   public isActive!: boolean;
 
-  @Column({
+  @CreateDateColumn({
     name: "created_at",
     type: "timestamp",
     nullable: true,
@@ -67,9 +68,9 @@ export class User {
 
   @OneToOne(() => Address, (item) => item.id)
   @JoinColumn({
-    name: "addresses_id",
+    name: "address_id",
   })
-  public addresses!: Address;
+  public address!: Address;
 
   @OneToOne(() => User, (item) => item.id)
   @JoinColumn({
@@ -79,6 +80,7 @@ export class User {
 
   @ManyToMany(() => Role, (item) => item.users)
   @JoinTable({
+    // name: "users_have_roles",
     inverseJoinColumn: {
       referencedColumnName: "id",
       name: "role_id",
@@ -93,9 +95,9 @@ export class User {
   @OneToMany(() => Comment, (item) => item.createdBy)
   public comments!: Comment[];
 
-  @ManyToMany(() => BookList, (item) => item.users)
+  @ManyToMany(() => Book, (item) => item.users)
   @JoinTable({
-    name: "users_have_book",
+    // name: "users_have_book",
     inverseJoinColumn: {
       referencedColumnName: "id",
       name: "book_id",
@@ -105,5 +107,5 @@ export class User {
       name: "user_id",
     },
   })
-  public books!: BookList[];
+  public books!: Book[];
 }

@@ -5,6 +5,7 @@ import {
   JoinColumn,
   ManyToOne,
   UpdateDateColumn,
+  CreateDateColumn,
 } from "typeorm";
 import { User } from "./user";
 
@@ -14,7 +15,7 @@ export enum CommentKind {
   Note = "NOTE",
 }
 
-@Entity()
+@Entity("comments")
 export class Comment {
   @PrimaryGeneratedColumn()
   public id!: number;
@@ -32,7 +33,7 @@ export class Comment {
   })
   public kind!: CommentKind;
 
-  @Column({
+  @CreateDateColumn({
     name: "created_at",
     type: "timestamp",
     nullable: true,

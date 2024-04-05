@@ -5,12 +5,13 @@ import {
   Entity,
   UpdateDateColumn,
   Relation,
+  CreateDateColumn,
 } from "typeorm";
 import "reflect-metadata";
 
 import { User } from ".";
 
-@Entity()
+@Entity("addresses")
 export class Address {
   @PrimaryGeneratedColumn()
   public id!: number;
@@ -39,7 +40,7 @@ export class Address {
   })
   public country!: string;
 
-  @Column({
+  @CreateDateColumn({
     name: "created_at",
     type: "timestamp",
     nullable: true,
@@ -53,6 +54,6 @@ export class Address {
   })
   public updatedAt!: Date;
 
-  @OneToOne(() => User, (item) => item.addresses)
+  @OneToOne(() => User, (item) => item.address)
   public user!: Relation<User>;
 }

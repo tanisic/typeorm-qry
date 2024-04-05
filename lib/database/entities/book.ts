@@ -1,13 +1,15 @@
 import {
   Column,
+  CreateDateColumn,
   Entity,
   ManyToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
 import { User } from "./user";
-@Entity()
-export class BookList {
+
+@Entity("books")
+export class Book {
   @PrimaryGeneratedColumn()
   public id!: string;
 
@@ -17,7 +19,7 @@ export class BookList {
   })
   public text!: string;
 
-  @Column({
+  @CreateDateColumn({
     name: "created_at",
     type: "timestamp",
     nullable: true,

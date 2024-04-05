@@ -4,11 +4,12 @@ import {
   Column,
   ManyToMany,
   UpdateDateColumn,
+  CreateDateColumn,
 } from "typeorm";
 
 import { User } from ".";
 
-@Entity()
+@Entity("roles")
 export class Role {
   @PrimaryGeneratedColumn()
   public id!: number;
@@ -36,7 +37,7 @@ export class Role {
   })
   public isDefault!: boolean;
 
-  @Column({
+  @CreateDateColumn({
     name: "created_at",
     type: "timestamp",
     nullable: true,

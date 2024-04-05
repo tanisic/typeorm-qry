@@ -3,9 +3,10 @@ import {
   Entity,
   Column,
   UpdateDateColumn,
+  CreateDateColumn,
 } from "typeorm";
 
-@Entity()
+@Entity("users_have_roles")
 export class UsersHaveRoles {
   @PrimaryGeneratedColumn()
   public id!: number;
@@ -26,10 +27,9 @@ export class UsersHaveRoles {
   })
   public roleId!: number;
 
-  @Column({
+  @CreateDateColumn({
     name: "created_at",
     type: "timestamp",
-    nullable: true,
   })
   public createdAt!: Date;
 

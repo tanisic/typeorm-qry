@@ -1,6 +1,7 @@
 import { DataSource } from "typeorm";
 import { Seeder, SeederFactoryManager } from "typeorm-extension";
-import { User } from "../entities";
+import { Address, Book, Comment, Role, User } from "../entities";
+import { faker } from "@faker-js/faker";
 
 export default class RootSeeder implements Seeder {
   async run(
@@ -8,6 +9,20 @@ export default class RootSeeder implements Seeder {
     factoryManager: SeederFactoryManager
   ): Promise<any> {
     const userFactory = factoryManager.get(User);
-    await userFactory.saveMany(10);
+    const bookFactory = factoryManager.get(Book);
+    const roleFactory = factoryManager.get(Role);
+    const commentFactory = factoryManager.get(Comment);
+    const addressFactory = factoryManager.get(Address);
+    const users = await userFactory.saveMany(10);
+
+    for (const user of users) {
+      const filteredUsers = users.filter((u) => u.id !== user.id);
+      const manager = faker.helpers.arrayElement(filteredUsers);
+      user.manager = manager;
+      user.books = await bookFactory.saveMany(4);
+      user.roles = await roleFactory.saveMany(5);
+      user.comments = await commentFactory.saveMany(20);
+      user.address = await addressFactory.save();
+    }
   }
 }
