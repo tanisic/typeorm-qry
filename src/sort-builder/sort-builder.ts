@@ -26,11 +26,12 @@ export class SortBuilder<T extends ObjectLiteral> {
   addSort(sortString: string) {
     let order: "ASC" | "DESC" = "ASC";
 
+    sortString = sortString.trim();
+
     if (sortString.startsWith("-")) {
       order = "DESC";
       sortString = sortString.slice(1);
     }
-
     const splitted = sortString.split(".");
 
     if (splitted.length === 1) {
