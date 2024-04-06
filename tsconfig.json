@@ -1,17 +1,13 @@
 {
   "compilerOptions": {
-    "module": "Node16",
-    "target": "ES2021",
-    "sourceMap": true,
-    "noEmit": true,
-    "outDir": "./dist",
-    "noImplicitAny": true,
-    "noUnusedParameters": true,
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "target": "es6",
+    "moduleResolution": "node",
+    "outDir": "/dist",
+    "baseUrl": ".",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "declaration": true,
-    "moduleResolution": "Node16",
-    "skipLibCheck": true,
   },
   "include": [
     "src/**/*",

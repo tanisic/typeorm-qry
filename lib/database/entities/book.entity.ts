@@ -1,35 +1,28 @@
 import {
-  PrimaryGeneratedColumn,
-  Entity,
   Column,
-  UpdateDateColumn,
   CreateDateColumn,
+  Entity,
+  ManyToMany,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
 } from "typeorm";
+import User from "./user.entity";
 
-@Entity("users_have_roles")
-export class UsersHaveRoles {
+@Entity("books")
+export default class Book {
   @PrimaryGeneratedColumn()
-  public id!: number;
+  public id!: string;
 
   @Column({
-    name: "user_id",
-    type: "int",
+    type: "text",
     nullable: false,
-    unique: false,
   })
-  public userId!: number;
-
-  @Column({
-    name: "role_id",
-    type: "int",
-    nullable: false,
-    unique: false,
-  })
-  public roleId!: number;
+  public text!: string;
 
   @CreateDateColumn({
     name: "created_at",
     type: "timestamp",
+    nullable: true,
   })
   public createdAt!: Date;
 
@@ -39,4 +32,7 @@ export class UsersHaveRoles {
     nullable: true,
   })
   public updatedAt!: Date;
+
+  @ManyToMany(() => User, (item) => item.books)
+  public users!: User[];
 }

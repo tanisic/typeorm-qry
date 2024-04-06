@@ -1,41 +1,43 @@
 import {
   PrimaryGeneratedColumn,
-  Entity,
+  OneToOne,
   Column,
-  ManyToMany,
+  Entity,
   UpdateDateColumn,
+  type Relation,
   CreateDateColumn,
 } from "typeorm";
+import "reflect-metadata";
+import User from "./user.entity";
 
-import { User } from ".";
-
-@Entity("roles")
-export class Role {
+@Entity("addresses")
+export default class Address {
   @PrimaryGeneratedColumn()
   public id!: number;
 
   @Column({
     type: "varchar",
-    length: 128,
+    length: 70,
     nullable: true,
     default: "NULL",
   })
-  public name!: string;
+  public city!: string;
 
   @Column({
     type: "varchar",
-    length: 128,
-    nullable: false,
-    unique: true,
+    length: 70,
+    nullable: true,
+    default: "NULL",
   })
-  public key!: string;
+  public state!: string;
 
   @Column({
-    name: "is_default",
-    type: "boolean",
-    default: "false",
+    type: "varchar",
+    length: 68,
+    nullable: true,
+    default: "NULL",
   })
-  public isDefault!: boolean;
+  public country!: string;
 
   @CreateDateColumn({
     name: "created_at",
@@ -51,6 +53,6 @@ export class Role {
   })
   public updatedAt!: Date;
 
-  @ManyToMany(() => User, (item) => item.roles)
-  public users!: User[];
+  @OneToOne(() => User, (item) => item.address)
+  public user!: Relation<User>;
 }

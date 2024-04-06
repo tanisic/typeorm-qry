@@ -1,5 +1,5 @@
-import { ObjectLiteral, Repository, SelectQueryBuilder } from "typeorm";
-import { QueryParams } from "../types";
+import { type ObjectLiteral, Repository, SelectQueryBuilder } from "typeorm";
+import { type QueryParams } from "../types";
 
 export class SortBuilder<T extends ObjectLiteral> {
   private rawQuery: QueryParams;
@@ -10,7 +10,7 @@ export class SortBuilder<T extends ObjectLiteral> {
   constructor(
     query: QueryParams,
     queryBuilder: SelectQueryBuilder<T>,
-    repository: Repository<T>,
+    repository: Repository<T>
   ) {
     this.rawQuery = { ...query };
     this.queryBuilder = queryBuilder;

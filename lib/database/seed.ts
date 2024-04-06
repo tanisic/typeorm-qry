@@ -1,6 +1,6 @@
 import "reflect-metadata";
-import { DataSource, DataSourceOptions } from "typeorm";
-import { SeederOptions, runSeeders } from "typeorm-extension";
+import { DataSource, type DataSourceOptions } from "typeorm";
+import { type SeederOptions, runSeeders } from "typeorm-extension";
 import { join } from "path";
 import RootSeeder from "./seeders/root.seeder";
 

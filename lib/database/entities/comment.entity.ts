@@ -7,7 +7,7 @@ import {
   UpdateDateColumn,
   CreateDateColumn,
 } from "typeorm";
-import { User } from "./user";
+import User from "./user.entity";
 
 export enum CommentKind {
   Comment = "COMMENT",
@@ -16,7 +16,7 @@ export enum CommentKind {
 }
 
 @Entity("comments")
-export class Comment {
+export default class Comment {
   @PrimaryGeneratedColumn()
   public id!: number;
 

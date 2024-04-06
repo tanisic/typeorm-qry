@@ -1,7 +1,7 @@
-import { ObjectLiteral, SelectQueryBuilder } from "typeorm";
-import { QueryParams } from "../types";
-import { Paginate } from "./types";
-import { PaginateBuilderOptions } from "../query-builder";
+import { type ObjectLiteral, SelectQueryBuilder } from "typeorm";
+import { type QueryParams } from "../types";
+import { type Paginate } from "./types";
+import { type PaginateBuilderOptions } from "../query-builder";
 import { isInteger } from "../utils/utils";
 
 export class PaginateBuilder<T extends ObjectLiteral> {

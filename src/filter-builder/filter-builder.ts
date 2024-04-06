@@ -1,12 +1,12 @@
 import {
   SelectQueryBuilder,
-  WhereExpressionBuilder,
+  type WhereExpressionBuilder,
   Brackets,
   NotBrackets,
-  ObjectLiteral,
+  type ObjectLiteral,
 } from "typeorm";
-import { FilterOperand, Filter, FilterNode } from "./types";
-import { QueryParams } from "../types";
+import { FilterOperand, type Filter, type FilterNode } from "./types";
+import { type QueryParams } from "../types";
 import { token } from "../utils/utils";
 
 export class FilterBuilder<T extends ObjectLiteral> {

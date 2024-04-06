@@ -1,4 +1,4 @@
-import { Book } from "../../entities";
+import { Book } from "../../entities/index.entity";
 import { setSeederFactory } from "typeorm-extension";
 
 export const BookFactory = setSeederFactory(Book, (faker) => {

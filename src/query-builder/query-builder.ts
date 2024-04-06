@@ -1,10 +1,10 @@
-import { ObjectLiteral, Repository, SelectQueryBuilder } from "typeorm";
+import { type ObjectLiteral, Repository, SelectQueryBuilder } from "typeorm";
 import { FilterBuilder } from "../filter-builder/filter-builder";
 import { IncludeBuilder } from "../include-builder/include-builder";
 import { SortBuilder } from "../sort-builder/sort-builder";
-import { QueryBuilderOptions } from "./types";
+import { type QueryBuilderOptions } from "./types";
 import { deepMerge } from "../utils/utils";
-import { QueryParams } from "../types";
+import { type QueryParams } from "../types";
 import { PaginateBuilder } from "../paginate-builder";
 
 export class QueryBuilder<T extends ObjectLiteral> {

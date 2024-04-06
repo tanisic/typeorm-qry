@@ -10,10 +10,13 @@ import {
   UpdateDateColumn,
   CreateDateColumn,
 } from "typeorm";
-import { Address, Role, Comment, Book } from ".";
+import Address from "./address.entity";
+import Book from "./book.entity";
+import Role from "./role.entity";
+import Comment from "./comment.entity";
 
 @Entity("users")
-export class User {
+export default class User {
   @PrimaryGeneratedColumn()
   public id!: number;
 

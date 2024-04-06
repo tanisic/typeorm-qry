@@ -1,5 +1,5 @@
 import { setSeederFactory } from "typeorm-extension";
-import { Address } from "../../entities";
+import { Address } from "../../entities/index.entity";
 
 export const AddressFactory = setSeederFactory(Address, (faker) => {
   const address = new Address();
