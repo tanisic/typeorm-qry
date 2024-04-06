@@ -16,7 +16,7 @@ export enum CommentKind {
 }
 
 @Entity("comments")
-export default class Comment {
+class Comment {
   @PrimaryGeneratedColumn()
   public id!: number;
 
@@ -53,3 +53,4 @@ export default class Comment {
   })
   public createdBy!: User;
 }
+export default Comment;

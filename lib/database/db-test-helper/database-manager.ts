@@ -17,6 +17,7 @@ class DatabaseManager {
    * @param relPath - relative path to TypeORM entities folder
    */
   async initialize(relPath?: string) {
+    // Dynamically import entities
     const entities = await importEntities(relPath ?? "../entities");
 
     this.dataSource = new DataSource({

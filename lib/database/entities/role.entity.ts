@@ -9,7 +9,7 @@ import {
 import User from "./user.entity";
 
 @Entity("roles")
-export default class Role {
+class Role {
   @PrimaryGeneratedColumn()
   public id!: number;
 
@@ -53,3 +53,5 @@ export default class Role {
   @ManyToMany(() => User, (item) => item.roles)
   public users!: User[];
 }
+
+export default Role;

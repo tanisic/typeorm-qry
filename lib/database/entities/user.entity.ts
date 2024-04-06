@@ -16,7 +16,7 @@ import Role from "./role.entity";
 import Comment from "./comment.entity";
 
 @Entity("users")
-export default class User {
+class User {
   @PrimaryGeneratedColumn()
   public id!: number;
 
@@ -112,3 +112,4 @@ export default class User {
   })
   public books!: Book[];
 }
+export default User;

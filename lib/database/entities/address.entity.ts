@@ -11,7 +11,7 @@ import "reflect-metadata";
 import User from "./user.entity";
 
 @Entity("addresses")
-export default class Address {
+class Address {
   @PrimaryGeneratedColumn()
   public id!: number;
 
@@ -56,3 +56,5 @@ export default class Address {
   @OneToOne(() => User, (item) => item.address)
   public user!: Relation<User>;
 }
+
+export default Address;

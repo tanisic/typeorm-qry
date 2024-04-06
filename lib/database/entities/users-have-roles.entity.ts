@@ -7,7 +7,7 @@ import {
 } from "typeorm";
 
 @Entity("users_have_roles")
-export default class UsersHaveRoles {
+class UsersHaveRoles {
   @PrimaryGeneratedColumn()
   public id!: number;
 
@@ -40,3 +40,4 @@ export default class UsersHaveRoles {
   })
   public updatedAt!: Date;
 }
+export default UsersHaveRoles;
