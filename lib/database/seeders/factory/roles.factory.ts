@@ -1,4 +1,4 @@
-import { Role } from "../../entities/index.entity";
+import Role from "../../entities/role.entity";
 import { setSeederFactory } from "typeorm-extension";
 
 export const RolesFactory = setSeederFactory(Role, (faker) => {

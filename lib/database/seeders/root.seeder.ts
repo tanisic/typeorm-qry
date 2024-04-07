@@ -1,7 +1,11 @@
 import { DataSource } from "typeorm";
 import { type Seeder, SeederFactoryManager } from "typeorm-extension";
-import { Address, Book, Comment, Role, User } from "../entities/index.entity";
 import { faker } from "@faker-js/faker";
+import User from "../entities/user.entity";
+import Book from "../entities/book.entity";
+import Role from "../entities/role.entity";
+import Address from "../entities/address.entity";
+import Comment from "../entities/comment.entity";
 
 export default class RootSeeder implements Seeder {
   async run(
