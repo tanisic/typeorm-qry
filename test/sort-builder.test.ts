@@ -1,7 +1,7 @@
 import { beforeAll, describe, test, afterAll, expect } from "vitest";
-import { dbManager } from "lib/database/db-test-helper/instance";
-import { QueryBuilder } from "src/query-builder";
-import User from "../../lib/database/entities/user.entity";
+import { dbManager } from "../lib/database/db-test-helper/instance";
+import { QueryBuilder } from "../src/index";
+import User from "../lib/database/entities/user.entity";
 
 describe("Sort builder", () => {
   beforeAll(async () => {
@@ -63,6 +63,7 @@ describe("Sort builder", () => {
       "user.lastName": "ASC",
     });
   });
+
   test("Multiple simple sorts test trim", () => {
     const source = dbManager.getDataSource();
     const repo = source.getRepository(User);
@@ -72,6 +73,7 @@ describe("Sort builder", () => {
       "user.lastName": "ASC",
     });
   });
+
   test("Multiple relation sorts test trim", () => {
     const source = dbManager.getDataSource();
     const repo = source.getRepository(User);

@@ -13,7 +13,6 @@
     "query",
     "builder"
   ],
-  "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
@@ -22,7 +21,7 @@
   ],
   "scripts": {
     "test": "vitest",
-    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "build": "tsup",
     "release": "pnpm run build && changeset publish",
     "lint": "tsc",
     "seed": "ts-node lib/database/seed.ts",

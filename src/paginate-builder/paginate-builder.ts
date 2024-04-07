@@ -30,14 +30,14 @@ export class PaginateBuilder<T extends ObjectLiteral> {
       throw new Error("Paginate 'page' and 'perPage' must be sent together.");
     }
     if (!isInteger(paginate.page) || !isInteger(paginate.perPage)) {
-      throw new Error("Paginate page is not integer.");
+      throw new Error("Paginate page is not valid integer.");
     }
     if (!isInteger(paginate.perPage)) {
       throw new Error("Paginate perPage is not integer.");
     }
 
-    const page = paginate.page - 1;
-    const perPage = paginate.perPage;
+    const page = (paginate.page as number) - 1;
+    const perPage = paginate.perPage as number;
     const maxPerPage = this.options.maxPerPage;
 
     if (maxPerPage && perPage > maxPerPage) {

@@ -1,5 +1,5 @@
 import { expect, test, describe } from "vitest";
-import { deepMerge, isInteger, isObject } from "./utils";
+import { deepMerge, isInteger, isObject } from "../src/utils";
 
 describe("utils/isObject", () => {
   test("check if {} is object", () => {

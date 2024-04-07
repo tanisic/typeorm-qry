@@ -1,9 +1,9 @@
 export type Paginate =
   | {
-      page?: number;
-      perPage?: number;
+      page?: number | string;
+      perPage?: number | string;
     }
   | {
-      page: number;
-      perPage: number;
+      page: number | string;
+      perPage: number | string;
     };
