@@ -20,7 +20,10 @@ export class IncludeBuilder<T extends ObjectLiteral> {
     const includes = this.rawQuery.include?.split(",") || [];
 
     for (const include of includes) {
-      const nestedIncludesPaths = include.split(".");
+      const nestedIncludesPaths = include
+        .trim()
+        .split(".")
+        .map((incl) => incl.trim());
       this.addNestedJoins(nestedIncludesPaths, this.queryBuilder.alias);
     }
   }
