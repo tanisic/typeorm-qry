@@ -1,5 +1,15 @@
 # typeorm-qry
 
+## 0.0.4
+
+### Patch Changes
+
+- 293d2dd: Added tests for sort builder, paginte builder and include builder.
+
+  Fix `isInteger` utility.
+
+  Fix include builder to trim each relation.
+
 ## 0.0.3
 
 ### Patch Changes

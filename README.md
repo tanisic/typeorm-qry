@@ -6,7 +6,6 @@
 
 ## Features
 
-- **Fluent Interface**: Easily construct TypeORM queries using a intuitive query object.
 - **Complex filter building**: Easily construct TypeORM queries using a intuitive query object.
 - **Dynamic Query Building**: Construct queries dynamically based on runtime conditions and user input.
 - **Compatibility**: Seamlessly integrates with existing TypeORM projects and entities.
@@ -22,16 +21,16 @@
   - [ ] writing tests
 - Pagination
   - [x] feature
-  - [ ] writing tests
+  - [x] writing tests
 - Sorting
   - [x] simple sort
   - [x] multiple sorts
   - [x] sort by relation (also multiple)
-  - [ ] writing tests
+  - [x] writing tests
 - Relation includes
   - [x] simple relation include
   - [x] dot separated nested relation includes
-  - [ ] writing tests
+  - [x] writing tests
 - Field selects
   - [ ] simple field select
   - [ ] fields select by relation
