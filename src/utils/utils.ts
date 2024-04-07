@@ -30,13 +30,14 @@ export function deepMerge(target: unknown, ...sources: unknown[]): unknown {
   return deepMerge(target, ...sources);
 }
 
-export function isInteger(input: unknown): input is number {
-  if (typeof input === "number") {
-    return Number.isInteger(input);
+export function isInteger(value: number | string): boolean {
+  if (typeof value === "string") {
+    return /^\d+$/.test(value.trim());
   }
-  if (typeof input === "string") {
-    const result = parseInt(input);
-    return !isNaN(result);
+
+  if (typeof value === "number") {
+    return Number.isInteger(value);
   }
+
   return false;
 }

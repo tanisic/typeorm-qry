@@ -1,5 +1,5 @@
-import { Filter } from "./filter-builder/types";
-import { Paginate } from "./paginate-builder";
+import { type Filter } from "./filter-builder/types";
+import { type Paginate } from "./paginate-builder";
 
 export type QueryParams = {
   filter?: Filter;

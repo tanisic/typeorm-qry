@@ -1,21 +1,25 @@
 {
   "compilerOptions": {
     "module": "Node16",
+    "esModuleInterop": true,
     "target": "ES6",
-    "sourceMap": true,
-    "strict": true,
-    "noEmit": true,
-    "outDir": "./dist",
-    "noImplicitAny": true,
-    "noUnusedParameters": true,
-    "declaration": true,
     "moduleResolution": "Node16",
-    "skipLibCheck": true
+    "outDir": "/dist",
+    "baseUrl": ".",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
   },
   "include": [
-    "src/**/*"
+    "src/**/*",
+    "lib/**/*",
+    "test/utils.test.ts",
+    "test/paginate-builder.test.ts",
+    "test/sort-builder.test.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "test",
+    "dist",
+    "**/*spec.ts"
   ]
 }

@@ -1,5 +1,5 @@
-import { ObjectLiteral, Repository, SelectQueryBuilder } from "typeorm";
-import { QueryParams } from "../types";
+import { type ObjectLiteral, Repository, SelectQueryBuilder } from "typeorm";
+import { type QueryParams } from "../types";
 
 export class IncludeBuilder<T extends ObjectLiteral> {
   private rawQuery: QueryParams;
@@ -10,7 +10,7 @@ export class IncludeBuilder<T extends ObjectLiteral> {
   constructor(
     query: QueryParams,
     queryBuilder: SelectQueryBuilder<T>,
-    repository: Repository<T>,
+    repository: Repository<T>
   ) {
     this.rawQuery = { ...query };
     this.queryBuilder = queryBuilder;
@@ -20,7 +20,10 @@ export class IncludeBuilder<T extends ObjectLiteral> {
     const includes = this.rawQuery.include?.split(",") || [];
 
     for (const include of includes) {
-      const nestedIncludesPaths = include.split(".");
+      const nestedIncludesPaths = include
+        .trim()
+        .split(".")
+        .map((incl) => incl.trim());
       this.addNestedJoins(nestedIncludesPaths, this.queryBuilder.alias);
     }
   }
@@ -31,7 +34,7 @@ export class IncludeBuilder<T extends ObjectLiteral> {
     if (!this.joinedRelations.has(relationAlias)) {
       this.queryBuilder.leftJoinAndSelect(
         `${alias}.${relation}`,
-        relationAlias,
+        relationAlias
       );
       this.joinedRelations.add(relationAlias);
     }

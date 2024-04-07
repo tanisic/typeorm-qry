@@ -20,10 +20,11 @@
     "/dist"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "test": "vitest",
+    "build": "tsup",
     "release": "pnpm run build && changeset publish",
     "lint": "tsc",
+    "seed": "ts-node lib/database/seed.ts",
     "barrel": "barrelsby -c ./barrelsby.config.json"
   },
   "peerDependencies": {
@@ -31,9 +32,16 @@
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
+    "@faker-js/faker": "^8.4.1",
+    "@types/node": "^20.12.4",
     "barrelsby": "^2.8.1",
+    "pg": "^8.11.5",
+    "reflect-metadata": "^0.2.2",
+    "ts-node": "^10.9.2",
     "tsup": "^8.0.2",
     "typeorm": "^0.3.20",
-    "typescript": "^5.4.3"
+    "typeorm-extension": "^3.5.0",
+    "typescript": "^5.4.3",
+    "vitest": "^1.4.0"
   }
 }
