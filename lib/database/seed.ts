@@ -6,7 +6,7 @@ import RootSeeder from "./seeders/root.seeder";
 
 const config: DataSourceOptions & SeederOptions = {
   type: "better-sqlite3",
-  database: ":memory:",
+  database: "test.db",
   synchronize: true,
   // logging: true,
   entities: [join(__dirname, "/entities/**/*{.ts,.js}")],
