@@ -1,5 +1,11 @@
 # typeorm-qry
 
+## 0.0.5
+
+### Patch Changes
+
+- 5247e81: Testing is now done with in memory better-sqlite3 instead of postgres.
+
 ## 0.0.4
 
 ### Patch Changes
