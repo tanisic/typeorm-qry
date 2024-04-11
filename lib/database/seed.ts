@@ -5,14 +5,10 @@ import { join } from "path";
 import RootSeeder from "./seeders/root.seeder";
 
 const config: DataSourceOptions & SeederOptions = {
-  type: "postgres",
-  host: "localhost",
-  port: 5433,
-  username: "postgres",
-  password: "postgres",
-  database: "typeorm_test",
+  type: "better-sqlite3",
+  database: "test.db",
   synchronize: true,
-  logging: true,
+  // logging: true,
   entities: [join(__dirname, "/entities/**/*{.ts,.js}")],
   factories: [join(__dirname, "/seeders/factory/**/*{.ts,.js}")],
   seeds: [RootSeeder],

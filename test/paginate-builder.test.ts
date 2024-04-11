@@ -43,6 +43,24 @@ describe("Paginate builder", () => {
     ).toThrowError();
   });
 
+  test("Invalid paginate - page invalid value", () => {
+    const source = dbManager.getDataSource();
+    const repo = source.getRepository(User);
+    expect(
+      () =>
+        new QueryBuilder({ paginate: { page: "a1234df", perPage: 10 } }, repo)
+    ).toThrowError();
+  });
+
+  test("Invalid paginate - perPage invalid value", () => {
+    const source = dbManager.getDataSource();
+    const repo = source.getRepository(User);
+    expect(
+      () =>
+        new QueryBuilder({ paginate: { page: 10, perPage: "1234df" } }, repo)
+    ).toThrowError();
+  });
+
   test("Valid paginate - page is numeric string", () => {
     const source = dbManager.getDataSource();
     const repo = source.getRepository(User);

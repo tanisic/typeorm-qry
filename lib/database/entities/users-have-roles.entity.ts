@@ -29,13 +29,13 @@ class UsersHaveRoles {
 
   @CreateDateColumn({
     name: "created_at",
-    type: "timestamp",
+    type: "datetime",
   })
   public createdAt!: Date;
 
   @UpdateDateColumn({
     name: "updated_at",
-    type: "timestamp",
+    type: "datetime",
     nullable: true,
   })
   public updatedAt!: Date;

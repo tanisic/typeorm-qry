@@ -21,14 +21,14 @@ class Book {
 
   @CreateDateColumn({
     name: "created_at",
-    type: "timestamp",
+    type: "datetime",
     nullable: true,
   })
   public createdAt!: Date;
 
   @UpdateDateColumn({
     name: "updated_at",
-    type: "timestamp",
+    type: "datetime",
     nullable: true,
   })
   public updatedAt!: Date;
